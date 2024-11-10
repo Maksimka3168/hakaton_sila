@@ -1,19 +1,19 @@
 <h1 align="center">Хакатон СИЛА</h1>
 
 ## Как запустить backend часть?
-* Загрузите модель по следующей ссылке: [Перейти](https://google.com)
+* Загрузите модель по следующей ссылке: [Перейти](https://drive.google.com/drive/folders/19u8SX8jmbRih1LjhzuzVUN8LBDVlz77I?usp=sharing)
 * Переместите загруженные файлы в директорию: backend/src/model
-* Перейдите в директорию backend
+* Перейдите в директорию backend/src
 ```
-cd backend
+cd backend/src
 ```
-* Создайте .env файл и ничего в нём не меняйте
+* Создайте .env файл
 ```commandline
 cp .env.example .env
 ```
-* Перейдите в директорию backend/src
+* Измените путь MODEL_PATH до папки model без последней черты, к примеру:
 ```
-cd src
+MODEL_PATH=/src/model
 ```
 * И установите зависимости
 ```

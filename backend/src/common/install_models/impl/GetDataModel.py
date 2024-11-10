@@ -1,3 +1,5 @@
+import os
+
 import joblib
 
 from api.support.functions.load_model import load_model_fn
@@ -11,8 +13,8 @@ class GetModelData(IGetModelData):
         self.model = model
         self.tokenizer = tokenizer
         self.device = device
-        self.label_encoder_point = joblib.load("/src/model/label_encoder_point.joblib")
-        self.label_encoder_type = joblib.load("/src/model/label_encoder_type.joblib")
+        self.label_encoder_point = joblib.load(f"{os.environ.get('MODEL_PATH', '/src/model')}/label_encoder_point.joblib")
+        self.label_encoder_type = joblib.load(f"{os.environ.get('MODEL_PATH', '/src/model')}/label_encoder_type.joblib")
 
     async def __call__(self):
         return self.model, self.tokenizer, self.device, self.label_encoder_point, self.label_encoder_type

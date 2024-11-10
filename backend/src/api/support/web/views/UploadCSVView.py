@@ -22,7 +22,7 @@ class UploadCSVView:
     async def __call__(self, file: UploadFile = File(...)):
         model, tokenizer, device, label_encoder_point, label_encoder_type = await self.__get_model_data()
 
-        REQUIRED_COLUMNS = ['Тема', 'Описание']
+        REQUIRED_COLUMNS = ['index', 'Тема', 'Описание']
         if file.content_type != 'text/csv':
             raise HTTPException(status_code=400, detail="Файл должен быть в формате CSV.")
 
@@ -74,11 +74,13 @@ class UploadCSVView:
                 ]
                 await asyncio.gather(*tasks)
 
-            df['type_label'] = type_labels
-            df['point_label'] = point_labels
-            df['serial_number'] = serial_numbers
+            df['Тип оборудования'] = type_labels
+            df['Точка отказа'] = point_labels
+            df['Серийный номер'] = serial_numbers
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Ошибка при генерации предсказаний: {e}")
+
+        df = df.drop(["Тема", "Описание"], axis=1)
 
         stream = io.StringIO()
         df.to_csv(stream, index=False)
