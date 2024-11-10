@@ -10,3 +10,4 @@ pyjwt==2.9.0
 pydantic[email]
 pandas==2.2.3
 python-multipart==0.0.17
+python-dotenv==1.0.1

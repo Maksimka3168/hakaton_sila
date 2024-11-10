@@ -1,4 +1,4 @@
-from contextlib import asynccontextmanager
+import os
 
 from fastapi import FastAPI
 
@@ -13,8 +13,12 @@ from common.install_models.core.IGetModelData import IGetModelData
 from common.install_models.impl.GetDataModel import GetModelData
 from common.utils.ioc.ioc import ioc
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 app = FastAPI(
-    root_path="/api/v1",
+    root_path=f"{os.environ.get('ROOT_PATH', '/')}",
     title="SUPPORT API",
     version="1.0"
 )
