@@ -1,11 +1,12 @@
 import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
-import { ToastContainer,toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import classes from './EmailChat.module.css';
 import userAvatar from '../../assets/profile.png';
 import modelAvatar from '../../assets/model.png';
-import config from '../../config/enviroments'
+import config from '../../config/enviroments';
+
 interface Message {
   sender: string;
   text: string;
@@ -21,14 +22,18 @@ function EmailChat({ onLogout }: EmailChatProps) {
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const getAccessToken = () => localStorage.getItem('accessToken');
+  const getAccessToken = () => {
+    const token = localStorage.getItem('accessToken');
+    if (!token) {
+      toast.error('Токен доступа не найден, войдите снова');
+      onLogout(); 
+    }
+    return token;
+  };
 
   const fetchUnreadMessages = async () => {
     const accessToken = getAccessToken();
-    if (!accessToken) {
-      console.error('Токен доступа не найден');
-      return;
-    }
+    if (!accessToken) return;
 
     setLoading(true);
 
@@ -39,7 +44,6 @@ function EmailChat({ onLogout }: EmailChatProps) {
       if (response.data && response.data.length > 0) {
         for (const email of response.data) {
           const inputValue = `Тема: ${email.subject}\nСообщение: ${email.body}`;
-          
           const emailMessage = {
             sender: email.from_,
             text: inputValue,
@@ -61,15 +65,7 @@ function EmailChat({ onLogout }: EmailChatProps) {
             ]);
           } catch (predictError) {
             console.error('Ошибка при отправке запроса:', predictError);
-            toast.error('Ошибка при отправке запроса на сервер. Попробуйте позже.', {
-              position: 'top-right',
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            });
+            toast.error('Ошибка при отправке запроса на сервер. Попробуйте позже.');
           }
         }
       } else {
@@ -80,6 +76,7 @@ function EmailChat({ onLogout }: EmailChatProps) {
       }
     } catch (error) {
       console.error('Ошибка при получении сообщений:', error);
+      toast.error('Ошибка при получении сообщений. Проверьте соединение или авторизацию.');
     } finally {
       setLoading(false);
     }
@@ -114,12 +111,8 @@ function EmailChat({ onLogout }: EmailChatProps) {
                 message.isAnimated ? classes.animatedMessage : ''
               }`}
             >
-              <div className={`${classes.sender} ${classes.modelSender}`}>
-                {message.sender}
-              </div>
-              <div className={`${classes.text} ${classes.modelText}`}>
-                {message.text}
-              </div>
+              <div className={`${classes.sender} ${classes.modelSender}`}>{message.sender}</div>
+              <div className={`${classes.text} ${classes.modelText}`}>{message.text}</div>
             </div>
           </div>
         ))}
