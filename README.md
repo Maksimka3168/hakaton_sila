@@ -1,7 +1,7 @@
 <h1 align="center">Хакатон СИЛА</h1>
 
 ## Как запустить backend часть?
-* Загрузите модель по следующей ссылке: [Перейти](https://google.com)
+* Загрузите модель по следующей ссылке: [Перейти](https://drive.google.com/drive/folders/19u8SX8jmbRih1LjhzuzVUN8LBDVlz77I?usp=sharing)
 * Переместите загруженные файлы в директорию: backend/src/model
 * Перейдите в директорию backend/src
 ```
