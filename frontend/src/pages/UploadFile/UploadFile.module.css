@@ -1,0 +1,84 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+    padding: 20px;
+    padding-top: 110px; 
+
+  }
+  
+  .fileUpload {
+    width: 100%;
+    max-width: 850px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px dashed #888;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
+    text-align: center;
+  }
+  
+  .dropArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .dropArea img {
+    width: 39px;
+    height: 46px;
+    margin-bottom: 5px;
+  }
+  
+  .dropArea p {
+    font-weight: bold;
+  }
+  
+  .dropArea span {
+    margin-top: 6px;
+    color: #888;
+  }
+  
+  .browseBtn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #6c68df;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .fileInput {
+    display: none; /* Скрываем поле выбора файла */
+  }
+  
+  .fileContent {
+    margin-top: 20px;
+    text-align: left;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+.fileName{
+    margin-top: 20px;
+}
+  
+.downloadButton{
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #6c68df;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}

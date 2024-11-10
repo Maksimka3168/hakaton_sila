@@ -1,0 +1,164 @@
+@keyframes messageSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100%;
+    padding: 20px;
+    position: relative; 
+    padding-bottom: 80px; 
+    padding-top: 160px; 
+  }
+  
+  .messagesContainer {
+    width: 100%;
+    flex-grow: 1;
+    max-width: 850px;
+    margin-bottom: 20px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px; 
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+}
+
+.messagesContainer::-webkit-scrollbar {
+    display: none; 
+}
+  
+  .messageWrapper {
+    display: flex;
+    align-items: flex-start;
+    margin: 10px 0;
+  }
+  
+  .userWrapper {
+    justify-content: flex-end;
+  }
+  
+  .modelWrapper {
+    justify-content: flex-start;
+  }
+  .modelWrapper img{
+    background-color: #6c68df;
+  }
+  .modelWrapper .avatar{
+    background-color: #6c68df;
+  }
+  
+  .avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #888; 
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .userWrapper .avatar {
+    background-color: #6c68df;
+  }
+  .userWrapper img{
+    background-color: #6c68df;
+  }
+  
+  .message {
+    padding: 10px 20px;
+    border-radius: 10px;
+    max-width: 80%;
+    opacity: 1;
+    animation: messageSlideIn 0.4s ease forwards;
+  }
+  .userMessage {
+    background-color: #6c68df; 
+    color: white; 
+    border-radius: 10px 10px 0 10px;
+  }
+  .avatarImage{
+      width: 25px;
+      height: 25px;
+  }
+  
+  
+  .modelMessage {
+    background-color: #ffffff;
+    color: black; 
+    border-radius: 10px 10px 10px 0;
+  }
+  
+  .userSender {
+    font-weight: bold;
+    background-color: #6c68df;
+    color: white;
+    margin-bottom: 5px;
+  }
+  .modelSender {
+    font-weight: bold;
+    background-color: white;
+    color: black;
+    margin-bottom: 5px;
+  }
+  .userText {
+    color: white;
+    background-color: #6c68df;
+    word-break: break-word; 
+    overflow-wrap: break-word;
+  }
+  .modelText {
+    color: black;
+    background-color: white;
+    word-break: break-word;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+  }
+  .buttonContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between buttons */
+    margin-top: 20px;
+  }
+  
+  .checkemail, .logoutButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border: none;
+  }
+  
+  .checkemail {
+    background-color: #6c68df; /* Primary color */
+  }
+  
+  .checkemail:hover {
+    background-color: #5b58b5; /* Hover color */
+  }
+  
+  .logoutButton {
+    background-color: #6c68df; /* Primary color */
+  }
+  
+  .logoutButton:hover {
+    background-color: #5b58b5; /* Hover color */
+  }

@@ -1,0 +1,63 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; 
+    top: 0; 
+    z-index: 1000; 
+
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 46px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5px;
+    position: relative; 
+}
+
+.tab {
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    min-width: 100px;
+    text-decoration: none;
+    color: #888;
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.tab.active {
+    color: black;
+    background-color: #ffffff;
+
+}
+
+.tab:not(.active) {
+    color: #888;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px; /* Начальная ширина */
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease, width 0.3s ease; 
+    z-index: 0; 
+}
