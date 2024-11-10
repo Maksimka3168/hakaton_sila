@@ -7,9 +7,13 @@
 ```
 cd backend/src
 ```
-* Создайте .env файл и ничего в нём не меняйте
+* Создайте .env файл
 ```commandline
 cp .env.example .env
+```
+* Измените путь MODEL_PATH до папки model без последней черты, к примеру:
+```
+MODEL_PATH=/src/model
 ```
 * И установите зависимости
 ```
