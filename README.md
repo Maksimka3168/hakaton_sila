@@ -1,5 +1,8 @@
 <h1 align="center">Хакатон СИЛА</h1>
 
+## Наш запущенный сервер, на который можно зайти и посмотреть функционал web-приложения
+[https://sila-support.ru/](https://sila-support.ru/)
+
 ## Как запустить backend часть?
 * Загрузите модель по следующей ссылке: [Перейти](https://drive.google.com/drive/folders/19u8SX8jmbRih1LjhzuzVUN8LBDVlz77I?usp=sharing)
 * Переместите загруженные файлы в директорию: backend/src/model
@@ -40,5 +43,6 @@ npm install
 ```commandline
 npm run dev
 ```
+
 
 
