@@ -1,0 +1,18 @@
+services:
+  assist_gateway:
+    build: ./src
+    container_name: backend
+    restart: always
+    working_dir: /src
+    command: bash -c "uvicorn main:app --host=0.0.0.0 --port 8000 --log-level=info"
+    volumes:
+      - ./src:/src
+    ports:
+      - "8000:8000"
+    networks:
+      - infrastructure
+
+networks:
+  infrastructure:
+    name: infrastructure
+    external: true
